@@ -10,7 +10,8 @@ import java.time.LocalDateTime;
 @Builder @AllArgsConstructor @NoArgsConstructor
 public class Reservation {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "reservation_id")
     private Long id;
 
