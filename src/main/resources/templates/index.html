@@ -2,40 +2,9 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments.html :: head"></head>
 <body>
-
     <div class="container">
-        <form th:method="post" th:action="@{/reservation}">
-            <div class="row mt-5">
-                <div class="col-4">
-                    <div class="row">
-                        <label>가맹점</label>
-                        <select>
-                            <option value="mrc001">강남-엑스케이프</option>
-                            <option value="mrc001">건대-엑스케이프</option>
-                            <option value="mrc001">건대-엑스크라임</option>
-                            <option value="mrc001">수원-엑스케이프</option>
-                        </select>
-                    </div>
-                    <div class="row">
-                        <label>테마</label>
-                        <select>
-                            <option value="mrc001">강남-엑스케이프</option>
-                            <option value="mrc001">건대-엑스케이프</option>
-                            <option value="mrc001">건대-엑스크라임</option>
-                            <option value="mrc001">수원-엑스케이프</option>
-                        </select>
-                    </div>
-                    <div class="row">
-                        <label>예약 날짜</label>
-                        <input type="date" name="reservedDate"/>
-                    </div>
-                    <div class="row">
-                        <label>핸드폰 번호</label>
-                        <input type="text" name="phoneNumber"/>
-                    </div>
-                </div>
-            </div>
-        </form>
+        <a th:href="@{/reserve}" class="btn btn-primary">예약 페이지 가기</a>
+        <a th:href="@{/admin}" class="btn btn-primary">어드민 페이지 가기</a>
     </div>
 </body>
 </html>

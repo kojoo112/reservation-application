@@ -14,8 +14,6 @@ public class Theme {
     @Column(name = "theme_Id")
     private Long id;
 
-    private String themeCode;
-
     private String themeName;
 
     @ManyToOne
