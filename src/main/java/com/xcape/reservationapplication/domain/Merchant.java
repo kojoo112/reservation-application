@@ -16,6 +16,8 @@ public class Merchant {
     @Column(name = "merchant_id")
     private Long id;
 
+    private String merchantCode;
+
     private String merchantName;
 
     @OneToMany(mappedBy = "merchant")

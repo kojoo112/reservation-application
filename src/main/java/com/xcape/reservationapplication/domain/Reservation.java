@@ -3,7 +3,7 @@ package com.xcape.reservationapplication.domain;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Getter @Setter @EqualsAndHashCode
@@ -23,7 +23,7 @@ public class Reservation {
     @JoinColumn(name = "theme_id")
     private Theme theme;
 
-    private LocalDateTime reservedAt;
+    private LocalDate reservedAt;
 
     private String phoneNumber;
 }

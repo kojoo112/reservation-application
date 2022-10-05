@@ -3,38 +3,40 @@
 <head th:replace="fragments.html :: head"></head>
 <body>
     <div class="container">
-        <form th:method="post" th:action="@{/reservation}">
+        <form th:method="post" th:action="@{/reserve}">
             <div class="row mt-5">
                 <div class="col-4">
                     <div class="row">
                         <label>가맹점</label>
-                        <select>
-                            <option value="mrc001">강남-엑스케이프</option>
-                            <option value="mrc001">건대-엑스케이프</option>
-                            <option value="mrc001">건대-엑스크라임</option>
-                            <option value="mrc001">수원-엑스케이프</option>
+                        <select id="merchant" th:name="merchantCode">
+                            <th:block th:each="merchant : ${merchantList}">
+                                <option th:value="${merchant.merchantCode}" th:text="${merchant.merchantName}"></option>
+                            </th:block>
                         </select>
                     </div>
                     <div class="row">
                         <label>테마</label>
-                        <select>
-                            <option value="mrc001">강남-엑스케이프</option>
-                            <option value="mrc001">건대-엑스케이프</option>
-                            <option value="mrc001">건대-엑스크라임</option>
-                            <option value="mrc001">수원-엑스케이프</option>
+                        <select id="theme" th:name="themeCode">
+                            <th:block th:each="theme : ${themeList}">
+                                <option th:value="${theme.themeCode}" th:text="${theme.themeName}"></option>
+                            </th:block>
                         </select>
                     </div>
                     <div class="row">
                         <label>예약 날짜</label>
-                        <input type="date" name="reservedDate"/>
+                        <input id="reservedAt" type="date" th:name="reservedAt"/>
                     </div>
                     <div class="row">
                         <label>핸드폰 번호</label>
-                        <input type="text" name="phoneNumber"/>
+                        <input type="text" th:name="phoneNumber"/>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary">예약하기</button>
                     </div>
                 </div>
             </div>
         </form>
     </div>
+<script th:src="@{/js/reservation/reserve.js}"></script>
 </body>
 </html>

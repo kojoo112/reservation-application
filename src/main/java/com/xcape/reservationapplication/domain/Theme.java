@@ -11,8 +11,10 @@ public class Theme {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "theme_Id")
+    @Column(name = "theme_id")
     private Long id;
+
+    private String themeCode;
 
     private String themeName;
 
