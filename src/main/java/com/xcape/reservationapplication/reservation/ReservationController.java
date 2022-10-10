@@ -10,7 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -38,13 +40,17 @@ public class ReservationController {
     }
 
     @PostMapping("/reserve")
-    public String reserveSubmit(ReserveForm reserveForm, Errors errors) {
+    public String reserveSubmit(@Valid ReserveForm reserveForm, Errors errors,
+                                Model model, RedirectAttributes attributes) {
         if (errors.hasErrors()) {
+            model.addAttribute("reserveForm", reserveForm);
+            model.addAttribute("error", "필수사항을 입력해주세요.");
             return "reservation/reserve";
         }
 
+        attributes.addFlashAttribute("success", "성공적으로 예약했습니다.");
         reservationService.saveNewReservation(reserveForm);
 
-        return "redirect:/reservation";
+        return "redirect:/reserve";
     }
 }

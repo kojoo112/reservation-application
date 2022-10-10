@@ -13,4 +13,7 @@ public interface ThemeRepository extends JpaRepository<Theme, Long> {
     List<Theme> findThemesByMerchant(Merchant merchant);
 
     Theme findByThemeCode(String themeCode);
+
+//    List<Theme> findThemesByMerchantCode(String merchantCode);
+    List<Theme> findThemesByMerchant_MerchantCode(String merchantCode);
 }

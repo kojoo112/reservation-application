@@ -1,6 +1,7 @@
 package com.xcape.reservationapplication.domain;
 
 import lombok.*;
+import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
 import java.time.LocalDate;

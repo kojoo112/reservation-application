@@ -1,5 +1,6 @@
 package com.xcape.reservationapplication.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -21,5 +22,6 @@ public class Merchant {
     private String merchantName;
 
     @OneToMany(mappedBy = "merchant")
+    @JsonIgnore
     private List<Theme> themeList = new ArrayList<>();
 }

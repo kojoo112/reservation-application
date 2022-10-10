@@ -3,7 +3,14 @@
 <head th:replace="fragments.html :: head"></head>
 <body>
     <div class="container">
-        <form th:method="post" th:action="@{/reserve}">
+        <div class="py-5 text-center" th:if="${error != null}">
+            <div class="alert alert-danger" role="alert" th:text="${error}"></div>
+        </div>
+        <div class="py-5 text-center" th:if="${success != null}">
+            <div class="alert alert-success" role="alert" th:text="${success}"></div>
+        </div>
+        <form action="#" th:method="post" th:action="@{/reserve}"
+        th:object="${reserveForm}">
             <div class="row mt-5">
                 <div class="col-4">
                     <div class="row">
@@ -37,6 +44,7 @@
             </div>
         </form>
     </div>
+    <button type="button" id="button">axios test button</button>
 <script th:src="@{/js/reservation/reserve.js}"></script>
 </body>
 </html>
